@@ -3,77 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobFinder - Contact Us</title>
+    <title>JobFinder — Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="data.js"></script>
+    <script defer src="app.js"></script>
+    <script defer src="jquery-features.js"></script>
 </head>
-<body>
+<body data-page="contact">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header id="site-header"></header>
 
-    <header>
-        <div class="container navbar">
-            <div class="logo"><span>J</span> JobFinder</div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="jobs.html">Find a Job</a></li>
-                    <li><a href="companies.html">Companies</a></li>
-                    <li><a href="contact.html" class="active">Contact Us</a></li>
-                </ul>
-            </nav>
-            <a href="post-job.html" class="btn-post">Post a Job</a>
-        </div>
-    </header>
-
-    <main>
-        <div class="page-header">
+    <main id="main">
+        <section class="page-header">
             <div class="container">
+                <span class="eyebrow">WE ARE HERE TO HELP</span>
                 <h1>Contact Us</h1>
-                <p>Have questions or need support? We're here to help.</p>
+                <p>Have a question? Check our FAQ or complete the feedback form.</p>
             </div>
-        </div>
-        <div class="container">
-            <div class="form-container">
-                <form action="#">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" placeholder="John Doe" required>
+        </section>
+
+        <div class="container section-space contact-layout">
+            <section class="panel" aria-labelledby="contact-title">
+                <h2 id="contact-title" class="h4">Send a Message</h2>
+                <p class="muted">Demo form: messages are validated but not sent.</p>
+
+                <form id="contact-form" novalidate>
+                    <div class="field">
+                        <label for="fullName">Full Name</label>
+                        <input id="fullName" name="fullName" class="form-control"
+                               type="text" maxlength="80" autocomplete="name"
+                               placeholder="Your full name" aria-describedby="fullName-error" required>
+                        <small id="fullName-error" class="field-error"></small>
                     </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" placeholder="john@example.com" required>
+
+                    <div class="field">
+                        <label for="contactEmail">Email Address</label>
+                        <input id="contactEmail" name="contactEmail" class="form-control"
+                               type="email" maxlength="120" autocomplete="email"
+                               placeholder="you@example.com" aria-describedby="contactEmail-error" required>
+                        <small id="contactEmail-error" class="field-error"></small>
                     </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea rows="5" placeholder="How can we help you?" required></textarea>
+
+                    <div class="field">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" class="form-select"
+                                aria-describedby="subject-error" required>
+                            <option value="">Choose a subject</option>
+                            <option>Finding a job</option>
+                            <option>Posting a job</option>
+                            <option>Technical issue</option>
+                            <option>Other</option>
+                        </select>
+                        <small id="subject-error" class="field-error"></small>
                     </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control"
+                                  rows="6" maxlength="1000" placeholder="How can we help you?"
+                                  aria-describedby="message-error message-count" required></textarea>
+                        <div class="field-bottom">
+                            <small id="message-error" class="field-error"></small>
+                            <small id="message-count" class="muted">0 / 1000</small>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="form-check">
+                            <input id="consent" name="consent" class="form-check-input"
+                                   type="checkbox" aria-describedby="consent-error" required>
+                            <label for="consent" class="form-check-label">
+                                I understand this is a demonstration form.
+                            </label>
+                        </div>
+                        <small id="consent-error" class="field-error"></small>
+                    </div>
+
+                    <button class="btn btn-primary w-100" type="submit">Validate Message</button>
+                    <p id="contact-success" class="success-message" role="status" hidden></p>
                 </form>
-            </div>
+            </section>
+
+            <section class="panel faq-panel" aria-labelledby="faq-title">
+                <span class="eyebrow">QUICK ANSWERS</span>
+                <h2 id="faq-title" class="h4">Frequently Asked Questions</h2>
+
+                <div class="field">
+                    <label for="faq-search">Search FAQ</label>
+                    <input id="faq-search" class="form-control" type="search"
+                           placeholder="Type a keyword..." maxlength="100">
+                </div>
+
+                <div id="faq-list">
+                    <article class="faq-item">
+                        <h3>
+                            <button class="faq-question" type="button"
+                                    aria-expanded="false" aria-controls="faq-answer-1">
+                                How do I find a job?
+                            </button>
+                        </h3>
+                        <div id="faq-answer-1" class="faq-answer">
+                            <p>Open Find a Job, enter a keyword and select your filters.
+                               You can combine location, category, company and work mode.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item">
+                        <h3>
+                            <button class="faq-question" type="button"
+                                    aria-expanded="false" aria-controls="faq-answer-2">
+                                How do saved jobs work?
+                            </button>
+                        </h3>
+                        <div id="faq-answer-2" class="faq-answer">
+                            <p>Press Save Job on a vacancy. Select Saved jobs only to view
+                               your list. Saved jobs remain in this browser after refreshing.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item">
+                        <h3>
+                            <button class="faq-question" type="button"
+                                    aria-expanded="false" aria-controls="faq-answer-3">
+                                Can I publish a vacancy?
+                            </button>
+                        </h3>
+                        <div id="faq-answer-3" class="faq-answer">
+                            <p>Complete the Post a Job form. Valid vacancies appear in the
+                               directory and are stored locally in this browser.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item">
+                        <h3>
+                            <button class="faq-question" type="button"
+                                    aria-expanded="false" aria-controls="faq-answer-4">
+                                Are these real vacancies?
+                            </button>
+                        </h3>
+                        <div id="faq-answer-4" class="faq-answer">
+                            <p>No. JobFinder is an educational project. The listed jobs and
+                               companies are demonstration data, not live offers.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item">
+                        <h3>
+                            <button class="faq-question" type="button"
+                                    aria-expanded="false" aria-controls="faq-answer-5">
+                                Does the contact form send an email?
+                            </button>
+                        </h3>
+                        <div id="faq-answer-5" class="faq-answer">
+                            <p>No. The form demonstrates JavaScript validation.
+                               It does not send or store your message.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <p id="faq-empty" role="status">No matching questions. Try another keyword.</p>
+            </section>
         </div>
     </main>
 
-    <footer>
-        <div class="container footer-content">
-            <div>
-                <div class="footer-logo">JobFinder</div>
-                <p>We connect the best talent with top companies.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="jobs.html">Browse Jobs</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Employers</h4>
-                <ul>
-                    <li><a href="post-job.html">Post a Job</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 JobFinder. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <footer id="site-footer"></footer>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
 </body>
 </html>

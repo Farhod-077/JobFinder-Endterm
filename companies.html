@@ -3,74 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobFinder - Companies</title>
+    <title>JobFinder — Companies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="data.js"></script>
+    <script defer src="app.js"></script>
 </head>
-<body>
+<body data-page="companies">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header id="site-header"></header>
 
-    <header>
-        <div class="container navbar">
-            <div class="logo"><span>J</span> JobFinder</div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="jobs.html">Find a Job</a></li>
-                    <li><a href="companies.html" class="active">Companies</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-            <a href="post-job.html" class="btn-post">Post a Job</a>
-        </div>
-    </header>
-
-    <main>
-        <div class="page-header">
+    <main id="main">
+        <section class="page-header">
             <div class="container">
+                <span class="eyebrow">MEET YOUR FUTURE TEAM</span>
                 <h1>Top Employers</h1>
-                <p>Discover great companies and find out where you want to work next.</p>
+                <p>Discover companies and explore their open positions.</p>
             </div>
-        </div>
-        <div class="container">
-            <div class="companies-grid">
-                <div class="company-card">
-                    <div class="comp-logo-large">G</div>
-                    <h3>Global Tech Inc.</h3>
-                    <p style="color:var(--text-light); margin-bottom:15px;">Software Development</p>
-                    <a href="jobs.html" class="view-jobs-btn">15 Open Jobs →</a>
-                </div>
-                <div class="company-card">
-                    <div class="comp-logo-large" style="background: #fef3c7; color: #d97706;">C</div>
-                    <h3>Creative Studio</h3>
-                    <p style="color:var(--text-light); margin-bottom:15px;">Design Agency</p>
-                    <a href="jobs.html" class="view-jobs-btn">5 Open Jobs →</a>
+        </section>
+
+        <section class="container section-space" aria-labelledby="companies-title">
+            <div class="section-heading">
+                <h2 id="companies-title">Explore Companies</h2>
+                <div class="company-search">
+                    <label for="company-search" class="visually-hidden">Search companies</label>
+                    <input id="company-search" class="form-control" type="search"
+                           placeholder="Search companies..." maxlength="100">
                 </div>
             </div>
-        </div>
+
+            <p id="company-count" role="status" aria-live="polite"></p>
+            <div id="company-list" class="companies-grid"></div>
+            <p id="company-empty" class="panel empty-state" hidden>No companies found.</p>
+        </section>
     </main>
 
-    <footer>
-        <div class="container footer-content">
-            <div>
-                <div class="footer-logo">JobFinder</div>
-                <p>We connect the best talent with top companies.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="jobs.html">Browse Jobs</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Employers</h4>
-                <ul>
-                    <li><a href="post-job.html">Post a Job</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 JobFinder. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <footer id="site-footer"></footer>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
 </body>
 </html>
