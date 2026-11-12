@@ -16,7 +16,7 @@ Group: SE-2525
 
 ## Published Website
 
-https://farhod-077.github.io/JobFinder-Endterm/?utm_source=chatgpt.com
+https://farhod-077.github.io/JobFinder-Endterm/
 
 ## Pages
 
